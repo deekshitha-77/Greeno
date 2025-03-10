@@ -39,11 +39,13 @@ jobs:
     # Install Heroku CLI (Fixes the "heroku not found" error)
     - name: Install Heroku CLI
       run: curl https://cli-assets.heroku.com/install.sh | sh
-    # Deploy to Heroku using CLI
-    - name: Deploy to Heroku
+    - name: Authenticate with Heroku
       env:
         HEROKU_API_KEY: ${{ secrets.HEROKUAPIKEY }}
-      run: |
-        heroku login --apikey=$HEROKU_API_KEY
-        heroku git:remote -a greeno
-        git push heroku main
+      run: echo $HEROKU_API_KEY | heroku auth:token
+
+    - name: Set Heroku Remote
+      run: heroku git:remote -a greeno
+
+    - name: Deploy to Heroku
+      run: git push heroku main
