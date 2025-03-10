@@ -47,5 +47,16 @@ jobs:
     - name: Set Heroku Remote
       run: heroku git:remote -a greeno
 
+    - name: Set Heroku Remote
+      run: |
+        heroku git:remote -a greeno || git remote add heroku https://git.heroku.com/greeno.git
+
     - name: Deploy to Heroku
-      run: git push heroku main
+      env:
+        HEROKU_API_KEY: ${{ secrets.HEROKUAPIKEY }}
+      run: |
+        git config --global user.email "sankadeekshitha@gmail.com"
+        git config --global user.name "SankaDeekshi@25"
+        git add .
+        git commit -m "Deploying to Heroku" || echo "No changes to commit"
+        git push -f heroku main
