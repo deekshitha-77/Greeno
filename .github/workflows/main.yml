@@ -36,27 +36,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - run: npm ci
-    # Install Heroku CLI (Fixes the "heroku not found" error)
-    - name: Install Heroku CLI
-      run: curl https://cli-assets.heroku.com/install.sh | sh
-    - name: Authenticate with Heroku
-      env:
-        HEROKU_API_KEY: ${{ secrets.HEROKUAPIKEY }}
-      run: echo $HEROKU_API_KEY | heroku auth:token
-
-    - name: Set Heroku Remote
-      run: heroku git:remote -a greeno
-
-    - name: Set Heroku Remote
-      run: |
-        heroku git:remote -a greeno || git remote add heroku https://git.heroku.com/greeno.git
-
-    - name: Deploy to Heroku
-      env:
-        HEROKU_API_KEY: ${{ secrets.HEROKUAPIKEY }}
-      run: |
-        git config --global user.email "sankadeekshitha@gmail.com"
-        git config --global user.name "SankaDeekshi@25"
-        git add .
-        git commit -m "Deploying to Heroku" || echo "No changes to commit"
-        git push -f heroku main
+    # Add steps to deploy to Heroku
+    - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action to deploy to Heroku
+      with:
+        heroku_api_key: ${{secrets.HEROKUAPIKEY}}
+        heroku_app_name: "greeno" # Replace with your Heroku app name
+        heroku_email: "b21in065l@kitsw.ac.in" # Replace with your Heroku account email
