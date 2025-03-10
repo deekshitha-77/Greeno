@@ -41,9 +41,9 @@ jobs:
       run: curl https://cli-assets.heroku.com/install.sh | sh
     # Deploy to Heroku using CLI
     - name: Deploy to Heroku
-        env:
-          HEROKU_API_KEY: ${{ secrets.HEROKUAPIKEY }}
-        run: |
-          heroku login --apikey=$HEROKU_API_KEY
-          heroku git:remote -a greeno
-          git push heroku main
+      env:
+        HEROKU_API_KEY: ${{ secrets.HEROKUAPIKEY }}
+      run: |
+        heroku login --apikey=$HEROKU_API_KEY
+        heroku git:remote -a greeno
+        git push heroku main
