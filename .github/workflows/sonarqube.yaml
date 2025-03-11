@@ -33,6 +33,6 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: >
-            -D"sonar.organization=Sanka Deekshitha"
+            -Dsonar.organization=deekshitha-77
             -Dsonar.projectKey=deekshitha-77_Greeno
             -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
