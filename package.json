@@ -8,6 +8,12 @@
     "start-dev": "nodemon index.js",
     "test": "jest --coverage"
   },
+  "jest": {
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "server.js"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MultiverseLearningProducts/greeno-flowers.git"
