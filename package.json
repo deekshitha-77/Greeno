@@ -6,8 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "start-dev": "nodemon index.js",
-    "test": "jest --coverage",
-    "postinstall": "npm install --omit=dev"
+    "test": "jest --coverage"
   },
   "jest": {
     "coveragePathIgnorePatterns": [
