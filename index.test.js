@@ -1,7 +1,7 @@
 const request = require('supertest');
 const express = require('express');
 
-const app = require('./index'); // Import your Express app
+const app = require('./server'); // Import your Express app
 
 describe('Static Website Tests', () => {
   it('should respond with status 200 for the home page', async () => {
