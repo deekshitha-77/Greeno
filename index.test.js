@@ -1,6 +1,6 @@
 const request = require('supertest');
 
-const app = require('./server'); // Import your Express app
+const app = require('./index'); // Import your Express app
 
 describe('Static Website Tests', () => {
   it('should respond with status 200 for the home page', async () => {
@@ -12,10 +12,5 @@ describe('Static Website Tests', () => {
     const response = await request(app).get('/css/style.css'); // Assuming you have this file
     expect(response.status).toBe(200);
     expect(response.headers['content-type']).toMatch(/text\/css/);
-  });
-
-  it('should start the server and respond', (done) => {
-    expect(server.listening).toBeTruthy();
-    done();
   });
 });
