@@ -1,9 +1,12 @@
 const request = require('supertest');
-const express = require('express');
 
 const app = require('./server'); // Import your Express app
 
 describe('Static Website Tests', () => {
+  afterAll((done) => {
+    server.close(done); // Close the server after tests to avoid Jest hanging
+  });
+  
   it('should respond with status 200 for the home page', async () => {
     const response = await request(app).get('/');
     expect(response.status).toBe(200);
