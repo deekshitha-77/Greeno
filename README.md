@@ -10,9 +10,8 @@ Manual deployment and code quality checks slow down development and increase err
 - Deploy the application automatically to Railway after successful checks.
 
 **Tech Stack**
-- Frontend: React (or any frontend framework of your choice)
-- Backend: Node.js with Express (or your preferred backend stack)
-- Database: PostgreSQL (if applicable)
+- Frontend: React
+- Backend: Node.js with Express
 - CI/CD: GitHub Actions
 - Code Quality: SonarQube
 - Deployment: Railway
